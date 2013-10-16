@@ -1,0 +1,13 @@
+#display {
+	width: 120px;
+	height: 120px;
+	margin: auto;
+	background-image: none;
+}
+
+#red_slider, #green_slider, #blue_slider {
+    float: left;
+    clear: left;
+    width: 300px;
+    margin: 15px;
+}

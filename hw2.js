@@ -1,4 +1,4 @@
- $.fn.hexed = function(settings) {
+$.fn.hexed = function(settings) {
 	$("#display").width(200).height(200);
 	var difficulty = -1;
 	var turns = -1;
@@ -23,3 +23,23 @@
 		$("#display").css("background-color", randomColor);
 	}
 }
+
+function refreshVal() {
+    var red = $("#red_slider").slider("value")
+      ,green = $("#green_slider").slider("value")
+      ,blue = $("#blue_slider").slider("value")
+      ,hex = hexFromRGB(red, green, blue);
+    $("#display").css("background-color", "rgb(red, green, blue)");
+  }
+
+$(function() {
+    $( "#red_slider, #green_slider, #blue_slider" ).slider({
+    	orientation: 'horizontal',
+      	range: true,
+      	min: 0,
+      	max: 255,
+      	value: 0,
+      	slide: refreshVal,
+      	change: refreshVal
+    });
+});
