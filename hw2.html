@@ -1,18 +1,21 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<title>Assignment #2 - Hexed! </title>
 		<meta charset="utf-8" />
-		<script src="hw2.js"></script>
-		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.js"></script>
-		<script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+		<title>Assignment #2 - Hexed! </title>
+  		<link rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css" />
+  		<script src="http://code.jquery.com/jquery-1.9.1.js"></script>
   		<script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
-  		<link rel="stylesheet" type="text/css" href="style.css" media="all" />
+
+		<script src="hw2.js"></script>
+		<link rel="stylesheet" type="text/css" href="style.css" media="all" />
+
 	</head>
 	<body>
-		<div id="display"></div>
 		<h2>Hexed!</h2>
-		<div id="red_slider"></div>
+		<div id="display"></div>
+
+		<div id="red_slider"></div>(<span id="testval"></span>)
 		<form id="red_val" action="">
 		  Value: <input type="number" name="val" min="0" max="255">
 		  <input type="submit">

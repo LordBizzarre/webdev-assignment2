@@ -30,16 +30,21 @@ function refreshVal() {
       ,blue = $("#blue_slider").slider("value")
       ,hex = hexFromRGB(red, green, blue);
     $("#display").css("background-color", "rgb(red, green, blue)");
+    $("#red_val").val(red);
+    $("#green_val").val(green);
+    $("#blue_val").val(blue);
   }
 
 $(function() {
     $( "#red_slider, #green_slider, #blue_slider" ).slider({
     	orientation: 'horizontal',
-      	range: true,
       	min: 0,
       	max: 255,
       	value: 0,
-      	slide: refreshVal,
+      	slide: function (event, ui) {
+            $("#testval").text( ui.value);
+        }
+      	//slide: refreshVal,
       	change: refreshVal
     });
 });
