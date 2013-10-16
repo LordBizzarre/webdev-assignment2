@@ -1,0 +1,87 @@
+body {
+  font-family: 'Source Sans Pro', sans-serif;
+  width: 70%;
+  margin: auto;
+}
+h2{
+  padding: 10px;
+  text-align: center;
+}
+.slider{
+  display: block;
+  margin: 30px 0;
+}
+h4, #red, #green, #blue, form, form p, #rval, #gval, #bval{
+  display: inline-block;
+}
+h4{
+  width: 70px;
+  margin-left: 10px;
+}
+form p{
+  width: 90px;
+  text-align: right;
+}
+section{
+  display: block;
+  width: 300px;
+  text-align: center;
+  margin: 40px auto;
+}
+input{
+  width: 60px;
+  margin-left: 10px;
+  text-align: center;
+}
+section p{
+  display: inline-block;
+}
+#red, #green, #blue {
+  width: 300px;
+  vertical-align: middle;
+}
+#rval, #gval, #bval {
+  width: 40px;
+  text-align: right;
+}
+
+#swatch, #rand_swatch {
+  background-image: none;
+  border-radius: 8px;
+  -webkit-border-radius: 8px; /* Safari & Chrome */
+  -moz-border-radius: 8px; /* Firefox */
+  -ms-border-radius: 8px; /* Internet Explorer */
+  -o-border-radius: 8px; /* Opera */
+}
+
+#swatch {
+  width: 120px;
+  height: 120px;
+  display: none;
+  margin: 30px 10px;
+}
+
+#rand_swatch {
+  width: 190px;
+  height: 190px;
+  float: right;
+  margin-right: 15px;
+  margin-top: 25px;
+}
+
+#red .ui-slider-range { background: red; }
+#green .ui-slider-range { background: lime; }
+#blue .ui-slider-range { background: blue; }
+
+input {
+  font-size: 13px;
+}
+
+button {
+  font-size: 17px;
+  padding: 6px;
+  display: block;
+  margin: 20px 10px;
+  text-align: center;
+  width: 100px;
+}
