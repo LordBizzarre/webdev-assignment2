@@ -54,7 +54,12 @@ $.fn.hexed = function(settings) { //makes 'hexed' a jquery function
                         
                         $("#score_board").text( score.toString() );
 						
-						$(this).unbind().click(function1);
+			if(turns != 0) 
+				$(this).unbind().click(function1);
+			else 
+				$(this).unbind().click(function() {
+					alert("Game Over! Refresh your page to play again!");
+				});
                 }
         };
         this.click(function1); //sets the first listener to function 1
