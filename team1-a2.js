@@ -1,9 +1,5 @@
 //$.fn.hexed = function() {
 $(function(){
-
-  var randomCol = '#'+Math.floor(Math.random()*16777215).toString(16);
-  $("#rand_swatch").css("background-color", randomCol);
-
   $( "#red, #green, #blue" ).slider({
     orientation: "horizontal",
     range: "min",
@@ -29,8 +25,7 @@ $(function(){
 });
 
 function refreshSwatch() {
-  var 
-  red = $( "#red" ).slider( "value" ),
+  var red = $( "#red" ).slider( "value" ),
   green = $( "#green" ).slider( "value" ),
   blue = $( "#blue" ).slider( "value" ),
   color = "rgb(" + red.toString() + ", " + green.toString() + ", " + blue.toString() + ")";
@@ -39,26 +34,92 @@ function refreshSwatch() {
   $('#input_green').val(green);
   $('#input_blue').val(blue);
 }
+$.fn.hexed = function(options) {
+    // Establish default settings
+    var 
+    defaults = {
+		difficulty: 5,
+		turns: 10
+    },
+    settings = $.extend({}, defaults, options),
+    difficulty,
+    turns;
+    $("#display").width(200).height(200); 
+    for (item in settings) {
+      if(item.first = difficulty)
+        difficulty = item.second;
+      else if(item.first = turns)
+        turns = item.second;
+    }
+    var start, r, g, b,
+	startGame, showResult, next;
+	
+    startGame = function() {
+	  $(this).text("Got it!");
+	  start =  new Date().getTime();
+	  
+	  r = Math.floor(255*Math.random()); 
+	  g = Math.floor(255*Math.random());
+	  b = Math.floor(255*Math.random());
+	  var randomCol = "rgb(" + r.toString() + ", " + g.toString() + ", " + b.toString() + ")";
+	  $("#rand_swatch").css("background-color", randomCol);
+	  
+	  $("input[name=difficulty]").attr("disabled", "disabled");
+	  $("input[name=turns]").attr("disabled", "disabled");
+	  $("#game").show("slow");
+	  $(this).unbind().click(showResult);
+	},
+	
 
-function startGame () {
-  $("input[name=difficulty]").attr("disabled", "disabled");
-  $("input[name=turns]").attr("disabled", "disabled");
-  //alert($("input[name=difficulty]").val() + $("input[name=turns]").val());
-  $("#playButton").hide("fast"); //just for appearance's sake
-  $("#game").show("fast");
-}
+	showResult = function(){
+	  $(this).text("Next");
+	  var red = $( "#red" ).slider( "value" ),
+	  green = $( "#green" ).slider( "value" ),
+	  blue = $( "#blue" ).slider( "value" ),
+	  
+	  accuracy = (Math.abs(r - red) + Math.abs(g - green) + Math.abs(b - blue))/765,
+	  milliseconds_taken =  new Date().getTime() - start,
+	  score = Math.floor(((15 - accuracy*100)/(15))
+			  * (15000-milliseconds_taken));
+	  if(score < 0)
+		score = 0;
+		
+	  $("#scoreboard").text( score.toString() );
+	  $("#swatch").show("slow");
+	  $("#result").show("slow");
+	  var y = $(window).scrollTop();
+	  $("#result").scrollTop(y + 800);  
+	  $( "#red, #green, #blue" ).slider({ disabled: true });
+	  $("#input_red, #input_green, #input_blue").attr("disabled", "disabled");
+	  $("input[type=submit]").attr("disabled", "disabled");
+	  $(this).unbind().click(next);
+	},
 
-function showResult(){
-  $("#swatch").show("fast");
-  $("#result").show("fast");
-  var y = $(window).scrollTop();
-  $("#result").scrollTop(y + 800);  
-  $( "#red, #green, #blue" ).slider({ disabled: true });
-  $("#input_red, #input_green, #input_blue").attr("disabled", "disabled");
-  $("input[type=submit]").attr("disabled", "disabled");
-
-}
-
-function next(){
-  window.location.reload();
+	next = function (){
+	  if(turns != 0) {
+        $(this).text("Got it!");
+		turns--;
+		$('#input_red').val(0);
+        $('#input_green').val(0);
+        $('#input_blue').val(0);
+		$( "#red, #green, #blue" ).slider({ disabled: false});
+	    $("#input_red").attr("disabled", false);
+	    $("#input_green").attr("disabled", false);
+		$("#input_blue").attr("disabled", false);
+	    $("input[type=submit]").attr("disabled", false);
+		$("#swatch").hide("slow");
+	    $("#result").hide("slow");
+		start =  new Date().getTime();
+	    r = Math.floor(255*Math.random()); 
+	    g = Math.floor(255*Math.random());
+	    b = Math.floor(255*Math.random());
+	    var randomCol = "rgb(" + r.toString() + ", " + g.toString() + ", " + b.toString() + ")";
+	    $("#rand_swatch").css("background-color", randomCol);
+		$(this).unbind().click(showResult);
+		start =  new Date().getTime();
+	  } else {
+		//end of game
+	  }
+	};
+	$(this).click(startGame);
 }
