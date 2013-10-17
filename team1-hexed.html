@@ -10,11 +10,6 @@
   <link rel="stylesheet" type="text/css" href="team1-a2.css" media="all" />
   <script type="text/javascript" src="team1-a2.js"></script>
   <link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400' rel='stylesheet' type='text/css'>
-  <script>
-  $(document).ready( function() {
-      $('h2').hexed();
-  });
-  </script>
 </head>
 
 <body >
@@ -26,7 +21,7 @@
     <p>Turns : <input type="number" name="turns" min="1" max="100" value="10"></p>
   </section>
 
-  <button class="ui-widget-content ui-corner-all" id = "playButton" onclick="startGame();">Play!</button>
+  <!--<button class="ui-widget-content ui-corner-all" id="startGame";">Play!</button> -->
 
   <section id="game">
     <div id="rand_swatch" class="ui-widget-content ui-corner-all"></div>
@@ -49,17 +44,24 @@
     <p>Value:</p><input id="input_blue" type="number" min="0" max="255">
     </div>
 
-    <button class="ui-widget-content ui-corner-all" onclick="showResult();">Got it!</button>
+    <!--<button class="ui-widget-content ui-corner-all" id="showResult">Got it!</button> -->
   </section>
 
 
   <section id="result">
     <div id="swatch" class="ui-widget-content ui-corner-all"></div>
     <div id="scoreboard"></div>
-    <button class="ui-widget-content ui-corner-all" onclick="next()">Next</button>
   </section>
- 
+  
+  <button class="ui-widget-content ui-corner-all" id="hexed">Play Game!</button>
 
-  <script type="text/javascript" src="jquery-hexed.js"></script>
+    <script>
+	  var options = {
+	    difficulty:5,
+		turns:10
+	  }
+      $('#hexed').hexed(options);
+    </script>
+  <!--<script type="text/javascript" src="jquery-hexed.js"></script> -->
 </body>
 </html>
