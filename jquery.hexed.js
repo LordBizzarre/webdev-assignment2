@@ -66,9 +66,5 @@
         };
         this.click(function1); //sets the first listener to function 1
         return this;
-};
-        
-
-
     }
 }(jQuery));
