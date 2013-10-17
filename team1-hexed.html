@@ -10,51 +10,56 @@
   <link rel="stylesheet" type="text/css" href="team1-a2.css" media="all" />
   <script type="text/javascript" src="team1-a2.js"></script>
   <link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400' rel='stylesheet' type='text/css'>
+  <script>
+  $(document).ready( function() {
+      $('h2').hexed();
+  });
+  </script>
 </head>
 
 <body >
 
-  <h2 class="ui-widget-content ui-corner-all">
-    Hexed!
-  </h2>
-  <section class="ui-widget-content ui-corner-all">
-    <p>Difficulty (Ranges from 0-10): </p><input type="number" name="difficulty" min="0" max="10" value="5">
-    <p>Turns (Any positive number): </p><input type="number" name="turns" min="0" max="10" value="10">
+  <h2>Welcome to Hexed!</h2>
+
+  <section id="start" class="ui-widget-content ui-corner-all">
+    <p>Difficulty (Ranges from 0-10) : <input type="number" name="difficulty" min="0" max="10" value="5"></p>
+    <p>Turns : <input type="number" name="turns" min="1" max="100" value="10"></p>
   </section>
 
-  <div id="rand_swatch" class="ui-widget-content ui-corner-all"></div>
-  
-  <div class="slider"> 
-  <h4>Red: </h4>
-  <div id="red"></div><span id="rval"></span>
-  <form>
+  <button class="ui-widget-content ui-corner-all" onclick="startGame();">Play!</button>
+
+  <section id="game">
+    <div id="rand_swatch" class="ui-widget-content ui-corner-all"></div>
+    
+    <div class="slider"> 
+    <h4>Red: </h4>
+    <div id="red"></div>
     <p>Value:</p><input id="input_red" type="number" min="0" max="255">
-    <input type="submit" class="ui-widget-content ui-corner-all">
-  </form>
-  </div>
+    </div>
 
-  <div class="slider"> 
-  <h4>Green: </h4>
-  <div id="green"></div><span id="gval"></span>
-  <form>
+    <div class="slider"> 
+    <h4>Green: </h4>
+    <div id="green"></div>
     <p>Value:</p><input id="input_green" type="number" min="0" max="255">
-    <input type="submit" class="ui-widget-content ui-corner-all">
-  </form>
-  </div>
+    </div>
 
-  <div class="slider"> 
-  <h4>Blue: </h4>
-  <div id="blue"></div><span id="bval"></span>
-  <form>
+    <div class="slider"> 
+    <h4>Blue: </h4>
+    <div id="blue"></div>
     <p>Value:</p><input id="input_blue" type="number" min="0" max="255">
-    <input type="submit" class="ui-widget-content ui-corner-all">
-  </form>
-  </div>
+    </div>
 
-  <button class="ui-widget-content ui-corner-all" onclick="showdiv('swatch');">Got it!</button>
-  <div id="swatch" class="ui-widget-content ui-corner-all"></div>
+    <button class="ui-widget-content ui-corner-all" onclick="showResult();">Got it!</button>
+  </section>
 
-  <button class="ui-widget-content ui-corner-all" onclick="next()">Next</button>
-   
+
+  <section id="result">
+    <div id="swatch" class="ui-widget-content ui-corner-all"></div>
+    <div id="scoreboard"></div>
+    <button class="ui-widget-content ui-corner-all" onclick="next()">Next</button>
+  </section>
+ 
+
+  <script type="text/javascript" src="jquery-hexed.js"></script>
 </body>
 </html>
