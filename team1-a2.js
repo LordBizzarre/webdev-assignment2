@@ -44,6 +44,7 @@ function startGame () {
   $("input[name=difficulty]").attr("disabled", "disabled");
   $("input[name=turns]").attr("disabled", "disabled");
   //alert($("input[name=difficulty]").val() + $("input[name=turns]").val());
+  $("#playButton").hide("fast"); //just for appearance's sake
   $("#game").show("fast");
 }
 
