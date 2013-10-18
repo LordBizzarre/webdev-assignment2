@@ -55,6 +55,7 @@ $.fn.hexed = function(options) {
 	startGame, showResult, next;
 	
     startGame = function() {
+    	  total_score = Math.floor(0);
 	  $(this).text("Got it!");
 	  start =  new Date().getTime();
 	  
@@ -83,7 +84,7 @@ $.fn.hexed = function(options) {
 			  * (15000-milliseconds_taken));
 	  if(score < 0)
 		score = 0;
-		
+	  total_score += score;
 	  $("#scoreboard").text( score.toString() );
 	  $("#swatch").show("slow");
 	  $("#result").show("slow");
@@ -119,6 +120,8 @@ $.fn.hexed = function(options) {
 		$(this).unbind().click(showResult);
 		start =  new Date().getTime();
 	  } else {
+	  	$("#total_score").text(total_score);
+		$("#final_score").show();
 		//end of game
 	  }
 	};
