@@ -102,6 +102,7 @@ $.fn.hexed = function(options) {
 		$('#input_red').val(0);
         $('#input_green').val(0);
         $('#input_blue').val(0);
+        $( "#red, #green, #blue").slider("option", "value", $("#red, #green, #blue").slider("option", "min"));
 		$( "#red, #green, #blue" ).slider({ disabled: false});
 	    $("#input_red").attr("disabled", false);
 	    $("#input_green").attr("disabled", false);
