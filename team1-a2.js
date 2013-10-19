@@ -34,37 +34,26 @@ function refreshSwatch() {
   $('#input_green').val(green);
   $('#input_blue').val(blue);
 }
-$.fn.hexed = function(options) {
+$.fn.hexed = function() {
     // Establish default settings
-    var 
-    defaults = {
-		difficulty: 5,
-		turns: 10
-    },
-    settings = $.extend({}, defaults, options),
-    difficulty,
-    turns;
-    $("#display").width(200).height(200); 
-    for (item in settings) {
-      if(item.first = difficulty)
-        difficulty = item.second;
-      else if(item.first = turns)
-        turns = item.second;
-    }
+    var difficulty, turns;
+    $("#final_score").hide();	
     var start, r, g, b,
 	startGame, showResult, next;
 	
     startGame = function() {
-    	  total_score = Math.floor(0);
+      total_score = 0;
+	  
 	  $(this).text("Got it!");
 	  start =  new Date().getTime();
-	  
 	  r = Math.floor(255*Math.random()); 
 	  g = Math.floor(255*Math.random());
 	  b = Math.floor(255*Math.random());
 	  var randomCol = "rgb(" + r.toString() + ", " + g.toString() + ", " + b.toString() + ")";
 	  $("#rand_swatch").css("background-color", randomCol);
 	  
+	  difficulty = parseInt(document.getElementsByName("difficulty")[0].value);
+	  turns = parseInt(document.getElementsByName("turns")[0].value);
 	  $("input[name=difficulty]").attr("disabled", "disabled");
 	  $("input[name=turns]").attr("disabled", "disabled");
 	  $("#game").show("slow");
@@ -80,7 +69,7 @@ $.fn.hexed = function(options) {
 	  
 	  accuracy = (Math.abs(r - red) + Math.abs(g - green) + Math.abs(b - blue))/765,
 	  milliseconds_taken =  new Date().getTime() - start,
-	  score = Math.floor(((15 - accuracy*100)/(15))
+	  score = Math.floor(((15 - difficulty- accuracy*100)/(15 - difficulty))
 			  * (15000-milliseconds_taken));
 	  if(score < 0)
 		score = 0;
@@ -97,9 +86,12 @@ $.fn.hexed = function(options) {
 	},
 
 	next = function (){
+	  $("#scores").html($("#scores").html() + "<li class='resultScore'>" + $("#result").html() + "</li>");
+	  turns--;
 	  if(turns != 0) {
         $(this).text("Got it!");
-		turns--;
+		$("#swatch").hide("slow");
+	    $("#result").hide("slow",  function() {});
 		$('#input_red').val(0);
         $('#input_green').val(0);
         $('#input_blue').val(0);
@@ -109,20 +101,23 @@ $.fn.hexed = function(options) {
 	    $("#input_green").attr("disabled", false);
 		$("#input_blue").attr("disabled", false);
 	    $("input[type=submit]").attr("disabled", false);
-		$("#swatch").hide("slow");
-	    $("#result").hide("slow");
-		start =  new Date().getTime();
-	    r = Math.floor(255*Math.random()); 
+	    
+		r = Math.floor(255*Math.random()); 
 	    g = Math.floor(255*Math.random());
 	    b = Math.floor(255*Math.random());
 	    var randomCol = "rgb(" + r.toString() + ", " + g.toString() + ", " + b.toString() + ")";
 	    $("#rand_swatch").css("background-color", randomCol);
+		
 		$(this).unbind().click(showResult);
 		start =  new Date().getTime();
 	  } else {
 	  	$("#total_score").text(total_score);
-		$("#final_score").show();
-		//end of game
+		$("#final_score").show("fast");
+		$("#result").hide("slow")
+		$(this).text("Play Again!");
+		$(this).unbind().click(function() {
+			window.location.reload();
+		});
 	  }
 	};
 	$(this).click(startGame);
