@@ -21,8 +21,6 @@
     <p>Turns : <input type="number" name="turns" min="1" max="100" value="10"></p>
   </section>
 
-  <!--<button class="ui-widget-content ui-corner-all" id="startGame";">Play!</button> -->
-
   <section id="game">
     <div id="rand_swatch" class="ui-widget-content ui-corner-all"></div>
     
@@ -43,30 +41,24 @@
     <div id="blue"></div>
     <p>Value:</p><input id="input_blue" type="number" min="0" max="255">
     </div>
-
-    <!--<button class="ui-widget-content ui-corner-all" id="showResult">Got it!</button> -->
   </section>
 
 
   <section id="result">
-    <div id="swatch" class="ui-widget-content ui-corner-all"></div>
-    <div id="scoreboard"></div>
+    <div id="swatch"></div>
+    <div id="scoreboard" class="ui-widget-content ui-corner-all"></div>
   </section>
   
   <section id="final_score">
     <h4>Final Score:</h4>
     <p id="total_score"></p>
+	<ul id="scores"></ul>
   </section>
   
   <button class="ui-widget-content ui-corner-all" id="hexed">Play Game!</button>
 
-    <script>
-	  var options = {
-	    difficulty:5,
-		turns:10
-	  }
-      $('#hexed').hexed(options);
-    </script>
-  <!--<script type="text/javascript" src="jquery-hexed.js"></script> -->
+  <script>
+    $('#hexed').hexed();
+  </script>
 </body>
 </html>
