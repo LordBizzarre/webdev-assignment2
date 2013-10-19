@@ -75,6 +75,15 @@ button {
   width: 10%;
 }
 
-#game, #result{
+#game, #result, #final_score{
   display: none;
+}
+#scoreboard {
+  width:120px;
+  text-align:center;
+  margin: 10px 10px;
+}
+#scores {
+  list-style:none;
+  padding:20px;
 }
