@@ -3,9 +3,9 @@
         $('#game').html("<div id='container'></div><div id='results'></div>");
         var title = '<h1>Hexed!</h1>';
         var slider = "<div id='red'></div><div id='green'></div><div id='blue'></div>";
-        var color = '<div id="swatch" class="ui-widget-content ui-corner-all"></div>';
+        var color = '<div id="color" class="ui-widget-content ui-corner-all"></div>';
         
-        var buttons = '<button type="button" id="gotIt" >Got It!</button> <button type="button" id="next" >Next!</button>';
+        var button = '<button type="button" id="gotIt" >Got It!</button> <button type="button" id="next" >Next!</button>';
         var val = '<div id="val"><input type="text" id="hex_red" class="value" /><input type="text" id="hex_green" class="value" /><input type="text" id="hex_blue" class="value" /></div>';
         $('#container').html(title + slider + color + buttons + val);
         var color1 = '<div class="recentSwatch"><h3>Color:</h3><div id="oldSwatch" class="ui-widget-content ui-corner-all"></div></div>';
