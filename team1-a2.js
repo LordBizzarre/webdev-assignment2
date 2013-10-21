@@ -45,7 +45,12 @@ $.fn.hexed = function() {
       total_score = 0;
 	  
 	  $(this).text("Got it!");
+	 
 	  start =  new Date().getTime();
+	  var timer = setInterval(function() {
+	  	$('#time').text((new Date - start) / 1000 + " seconds");
+	  }, 1000);
+	  
 	  r = Math.floor(255*Math.random()); 
 	  g = Math.floor(255*Math.random());
 	  b = Math.floor(255*Math.random());
