@@ -1,5 +1,5 @@
 (function ($) {
-    $.fn.hexed = function(difficulty, rounds) {
+    $.fn.hexed = function(d, roundforuser) {
         $('#game').html("<div id='container'></div><div id='results'></div>");
         var title = '<h1>Hexed!</h1>';
         var slider = "<div id='red'></div><div id='green'></div><div id='blue'></div>";
