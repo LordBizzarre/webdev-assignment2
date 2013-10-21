@@ -1,0 +1,20 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <title>Hexed Professor Plotka: Homework #2</title>
+        <link href='http://fonts.googleapis.com/css?family=Times+New+Roman' rel='stylesheet' type='text/css'>
+        <link rel="stylesheet" href="http://code.jquery.com/ui/1.9.0/themes/base/jquery-ui.css" />
+        <script src="http://code.jquery.com/ui/1.9.0/jquery-ui.js"></script>
+        <link rel="stylesheet" href="Assignment2PlotkaStyles.css" />
+        <script src="MadiAssignment2.js"></script>
+    </head>
+    <body>
+        <div id="game"></div>
+        <script>
+            $(function() {
+                $('#hexg').hexed(1, 5);
+            });
+        </script>
+    </body>
+</html>
