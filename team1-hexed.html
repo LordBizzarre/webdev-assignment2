@@ -12,9 +12,9 @@
   <link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400' rel='stylesheet' type='text/css'>
 </head>
 
-<body >
+<body>
 
-  <h2>Welcome to Hexed!</h2>
+  <h1>Welcome to Hexed!</h1>
 
   <section id="start" class="ui-widget-content ui-corner-all">
     <p>Difficulty (Ranges from 0-10) : <input type="number" id = "diff" name="difficulty" min="0" max="10" value="5"></p>
@@ -23,10 +23,6 @@
 
   <section id="game">
     <div id="rand_swatch" class="ui-widget-content ui-corner-all"></div>
-    
-     <div id="timer">
-      <p>Time:</p><p id="time"></p>
-    </div>
     
     <div class="slider"> 
     <h4>Red: </h4>
@@ -45,18 +41,21 @@
     <div id="blue"></div>
     <p>Value:</p><input id="input_blue" type="number" min="0" max="255">
     </div>
-  </section>
 
+    <div id="timer">
+      <h4>Time:</h4><p id="time"></p>
+    </div>
+  </section>
 
   <section id="result">
     <div id="swatch"></div>
     <div id="scoreboard" class="ui-widget-content ui-corner-all"></div>
   </section>
   
-  <section id="final_score">
-    <h4>Final Score:</h4>
+  <section id="final_score">  
+    <ul id="scores"></ul>
+    <h4 class="final">Final Score:</h4>
     <p id="total_score"></p>
-	<ul id="scores"></ul>
   </section>
   
   <button class="ui-widget-content ui-corner-all" id="hexed">Play Game!</button>

@@ -3,8 +3,8 @@ body {
   width: 65%;
   margin: auto;
 }
-h2{
-  padding: 20px;
+h1{
+  padding: 10px;
   text-align: center;
 }
 .slider{
@@ -54,6 +54,16 @@ input{
   margin: 30px 10px;
 }
 
+#start{
+  text-align: right;
+  padding-right: 32%;
+  font-weight: bold;
+}
+
+#start p{
+  display: block;
+}
+
 #rand_swatch {
   width: 190px;
   height: 190px;
@@ -70,9 +80,9 @@ button {
   font-size: 17px;
   padding: 6px;
   display: block;
-  margin: 30px 45%;
+  margin: 30px 42%;
   text-align: center;
-  width: 10%;
+  width: 15%;
 }
 
 #game, #result, #final_score{
@@ -87,8 +97,10 @@ button {
   list-style:none;
   padding:20px;
 }
-
-#timer {
+#timer, .final, #total_score {
   font-size: 20px;
   font-weight: bold;
+}
+.final{
+  width: 16%;
 }
