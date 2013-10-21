@@ -122,7 +122,8 @@ $.fn.hexed = function() {
 		$("#result").hide("slow")
 		$(this).text("Play Again!");
 		$(this).unbind().click(function() {
-			window.location.reload();
+			//window.location.reload();
+            window.location = window.location;
 		});
 	  }
 	};
