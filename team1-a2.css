@@ -87,3 +87,8 @@ button {
   list-style:none;
   padding:20px;
 }
+
+#timer {
+  font-size: 20px;
+  font-weight: bold;
+}
