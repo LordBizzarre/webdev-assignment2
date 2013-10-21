@@ -116,6 +116,7 @@ $.fn.hexed = function() {
 		$(this).unbind().click(showResult);
 		start =  new Date().getTime();
 	  } else {
+	  	$("#timer").hide("fast");
 	  	$("#total_score").text(total_score);
 		$("#final_score").show("fast");
 		$("#result").hide("slow")
