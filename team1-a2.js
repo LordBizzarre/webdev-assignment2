@@ -24,6 +24,7 @@ $(function(){
 
 });
 
+//refreshing swatch for play
 function refreshSwatch() {
   var red = $( "#red" ).slider( "value" ), //grab values
   green = $( "#green" ).slider( "value" ),
@@ -38,7 +39,7 @@ $.fn.hexed = function() {
     var difficulty, turns; 
     $("#final_score").hide();	
     var start, r, g, b,
-	startGame, showResult, next;
+	startGame, showResult, next; 
 	
     startGame = function() {
       total_score = 0; //start final score at 0
